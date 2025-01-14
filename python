@@ -1,0 +1,44 @@
+""" 
+
+
+﻿Alex is working on a system where each error needs to be processed based on specific calculations involving error codes and system statuses. Given an error code and a system status, write a program to calculate the final error code. The final error code is determined using bitwise operations and modulo.
+
+
+
+Example:
+
+Input:
+
+7 //error code
+
+14 //system status
+
+Output:
+
+6
+
+Explanation:
+
+Calculate the bitwise AND of error code and system status = 6
+
+Calculate the right shift of system status by 4 bits = 0
+
+Calculate the XOR of the results from step 1 and step 2: 6
+
+Compute the final error code by taking the result from step 3 modulo 256:  = 6
+
+Input format :
+The first line of input consists of an integer E, representing the error code.
+
+The second line consists of an integer S, representing system status.
+
+Output format :
+The output displays an integer, which is the final error code"""
+
+# You are using Python
+error_code = int(input())
+system_status = int(input())
+
+final_error_code = ((error_code & system_status) ^ (system_status >> 4)) % 256
+
+print(final_error_code)
